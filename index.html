@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUREVIA - Kelor Premium Evolusi</title>
+  <title>AUREVIA - Kelor Premium Kebanggaan Indonesia</title>
   <!-- Meta SEO -->
   <meta name="description" content="AUREVIA: Minuman fungsional kelor premium dengan tiga varian eksklusif, sertifikasi halal, dan inovasi dehidrasi rendah. Sehat, alami, memberdayakan petani.">
   <meta property="og:title" content="AUREVIA - Kelor Premium Indonesia">
@@ -455,7 +455,7 @@
       margin-top: 2.5rem;
       perspective: 1200px;
     }
-    .product-card, .usp-card, .team-card, .testimonial-card, .cert-card {
+    .product-card, .usp-card, .team-card, .testimonial-card, .cert-card, .vision-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -468,7 +468,7 @@
       overflow: hidden;
       transform-style: preserve-3d;
     }
-    .product-card:hover, .usp-card:hover, .team-card:hover {
+    .product-card:hover, .usp-card:hover, .team-card:hover, .vision-card:hover {
       transform: translateY(-15px) scale(1.03) rotateX(5deg) rotateY(5deg);
       box-shadow: 0 40px 50px -12px var(--accent-green);
       border-color: var(--accent-green);
@@ -583,26 +583,6 @@
       color: var(--accent-green);
     }
 
-    /* Roadmap */
-    .roadmap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .milestone {
-      background: var(--card-bg);
-      border-left: 6px solid var(--accent-green);
-      padding: 1.5rem;
-      border-radius: 40px;
-      flex: 1 1 180px;
-      backdrop-filter: blur(8px);
-      transition: 0.3s;
-    }
-    .milestone:hover {
-      transform: translateX(10px) scale(1.02);
-      border-left-width: 12px;
-    }
-
     /* Final CTA */
     .final-cta {
       background: var(--card-bg);
@@ -632,11 +612,28 @@
       flex-wrap: wrap;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem 0 4rem;
       color: var(--text-secondary);
       border-top: 1px dashed var(--card-border);
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--accent-green);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
     }
 
     /* Mobile tweaks */
@@ -650,7 +647,8 @@
   </style>
 </head>
 <body class="light-mode">
-  <a href="#" class="sticky-cta" onclick="alert('Pemesanan akan diarahkan ke WhatsApp (demo)'); return false;">
+  <!-- Sticky CTA dengan link WhatsApp nyata (contoh nomor) -->
+  <a href="https://wa.me/6281234567890?text=Halo%20AUREVIA%2C%20saya%20ingin%20memesan" class="sticky-cta" target="_blank">
     <i class="fab fa-whatsapp"></i> Pesan Sekarang
   </a>
 
@@ -667,7 +665,7 @@
       <a href="#produk">Produk</a>
       <a href="#keunikan">Keunikan</a>
       <a href="#testimoni">Testimoni</a>
-      <a href="#target">Pasar</a>
+      <a href="#visi">Visi</a>
       <a href="#tim">Tim</a>
     </div>
     <div style="display: flex; gap: 1rem; align-items: center;">
@@ -736,7 +734,7 @@
       </div>
     </section>
 
-    <!-- Perbandingan -->
+    <!-- Perbandingan (Competitive) -->
     <section id="perbandingan">
       <h2>AUREVIA vs Lainnya</h2>
       <div class="comparison">
@@ -744,7 +742,7 @@
         <div class="comparison-item"><i class="fas fa-leaf"></i><h4>Matcha Impor</h4><p>Harga tinggi, bukan lokal</p></div>
         <div class="comparison-item"><i class="fas fa-times-circle" style="color:red;"></i><h4>Kelor Biasa</h4><p>Rasa langu, kemasan kurang</p></div>
       </div>
-      <p style="text-align:center; margin-top:1rem;">*Berdasarkan riset pasar internal 2025</p>
+      <p style="text-align:center; margin-top:1rem;">*Berdasarkan persepsi pasar dan keunggulan produk.</p>
     </section>
 
     <!-- How It's Made -->
@@ -757,25 +755,24 @@
       </div>
     </section>
 
-    <!-- Target Pasar & Finansial -->
-    <section id="target">
-      <h2>Pasar & Kinerja</h2>
-      <div style="display: flex; flex-wrap: wrap; gap:2rem;">
-        <div style="flex:2; background: var(--card-bg); border-radius: 60px; padding:2rem;">
-          <p><strong>TAM</strong> Rp15 T · <strong>SAM</strong> Rp4,5 T · <strong>SOM</strong> Rp450 Juta</p>
-          <small style="color:var(--text-secondary);">Sumber: Industri Herbal Indonesia 2025, Kementan</small>
-          <div class="target-group" style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.8rem;">
-            <span class="pill">Sadar kesehatan</span><span class="pill">Pecinta organik</span><span class="pill">Generasi muda</span><span class="pill">Vegan</span><span class="pill">Premium</span>
-          </div>
+    <!-- VISI & ARAH PERTUMBUHAN (pengganti section finansial & roadmap) -->
+    <section id="visi">
+      <h2>Visi & Arah Pertumbuhan</h2>
+      <div class="card-grid">
+        <div class="vision-card" style="--i:1">
+          <i class="fas fa-seedling usp-icon"></i>
+          <h3>Inovasi Berkelanjutan</h3>
+          <p>Terus mengembangkan teknologi dehidrasi rendah dan varian rasa baru untuk memenuhi kebutuhan konsumen modern.</p>
         </div>
-        <div style="flex:1; background: var(--card-bg); border-radius: 60px; padding:2rem;">
-          <h3>Proyeksi Tahun 1</h3>
-          <div class="stats">
-            <div class="stat-item"><span>Rp251Jt</span> Pendapatan</div>
-            <div class="stat-item"><span>Rp35Jt</span> Laba</div>
-            <div class="stat-item"><span>175%</span> ROI</div>
-          </div>
-          <p>BEP 1.489 unit · Payback 7 bln · Modal Rp20Jt</p>
+        <div class="vision-card" style="--i:2">
+          <i class="fas fa-handshake usp-icon"></i>
+          <h3>Kemitraan Petani</h3>
+          <p>Memberdayakan petani lokal melalui program kemitraan adil dan pelatihan budidaya organik.</p>
+        </div>
+        <div class="vision-card" style="--i:3">
+          <i class="fas fa-globe usp-icon"></i>
+          <h3>Ekspansi Global</h3>
+          <p>Membawa kelor premium Indonesia ke pasar internasional dengan tetap mempertahankan kualitas dan kearifan lokal.</p>
         </div>
       </div>
     </section>
@@ -791,23 +788,13 @@
       </div>
     </section>
 
-    <!-- Roadmap -->
-    <section id="roadmap">
-      <h2>Roadmap</h2>
-      <div class="roadmap">
-        <div class="milestone" style="--i:1"><h3>2026</h3>3.000 unit · 3 kafe mitra · BEP</div>
-        <div class="milestone" style="--i:2"><h3>2027</h3>6.000 unit · Halal · ekspor Malaysia</div>
-        <div class="milestone" style="--i:3"><h3>2028</h3>Rumah produksi · 12.000 unit · varian baru</div>
-      </div>
-    </section>
-
     <!-- Final CTA -->
     <section class="final-cta">
       <h3>Siap Jadi Bagian Revolusi Kelor?</h3>
       <div class="cta-group">
-        <button class="btn" onclick="alert('Demo: arahkan ke WhatsApp')">Pesan Sekarang</button>
-        <button class="btn" onclick="alert('Demo: hubungi tim')">Jadi Mitra</button>
-        <button class="btn" onclick="alert('Demo: kontak kami')">Hubungi Kami</button>
+        <a href="https://wa.me/6281234567890?text=Halo%20AUREVIA%2C%20saya%20ingin%20memesan" class="btn" target="_blank">Pesan Sekarang</a>
+        <a href="https://wa.me/6281234567890?text=Halo%20AUREVIA%2C%20saya%20ingin%20menjadi%20mitra" class="btn" target="_blank">Jadi Mitra</a>
+        <a href="mailto:info@aurevia.id" class="btn">Hubungi Kami</a>
       </div>
     </section>
   </main>
@@ -815,6 +802,10 @@
   <footer>
     <i class="fas fa-leaf"></i> AUREVIA — Kelor Premium Kebanggaan Indonesia <br>
     <span>info@aurevia.id | @AUREVIA_id</span><br>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
     <small>© 2025 AUREVIA. All rights reserved.</small>
   </footer>
 
