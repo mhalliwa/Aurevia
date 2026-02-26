@@ -297,7 +297,7 @@
       transition: 0.2s;
     }
 
-    /* Language selector - click based, no hover */
+    /* Language selector */
     .lang-selector {
       position: relative;
       margin: 0 0.75rem;
@@ -314,7 +314,7 @@
       align-items: center;
       gap: 6px;
       transition: 0.3s;
-      min-width: 90px;
+      min-width: 80px;
       justify-content: center;
       font-size: 0.95rem;
     }
@@ -336,7 +336,7 @@
       z-index: 3000;
       box-shadow: var(--shadow);
     }
-    .lang-dropdown.active {
+    .lang-dropdown.show {
       display: flex;
     }
     .lang-dropdown button {
@@ -748,14 +748,14 @@
       <a href="#tim" data-i18n="navTeam">Tim</a>
     </div>
     <div style="display: flex; gap: 1rem; align-items: center;">
-      <!-- Language Selector - click toggle -->
-      <div class="lang-selector" id="langSelector">
+      <!-- Language Selector - toggle on click -->
+      <div class="lang-selector">
         <button class="lang-btn" id="langToggle"><i class="fas fa-globe"></i> <span id="currentLang">ID</span></button>
         <div class="lang-dropdown" id="langDropdown">
           <button onclick="switchLanguage('id')">Indonesia</button>
           <button onclick="switchLanguage('en')">English</button>
-          <button onclick="switchLanguage('zh')">中文 (Sederhana)</button>
-          <button onclick="switchLanguage('zh-tw')">中文 (傳統)</button>
+          <button onclick="switchLanguage('zh-CN')">简体中文</button>
+          <button onclick="switchLanguage('zh-TW')">繁體中文</button>
           <button onclick="switchLanguage('ja')">日本語</button>
           <button onclick="switchLanguage('ar')">العربية</button>
         </div>
@@ -950,29 +950,18 @@
         });
       });
 
-      // Language dropdown toggle (click based)
+      // Language dropdown toggle
       const langToggle = document.getElementById('langToggle');
       const langDropdown = document.getElementById('langDropdown');
-      const langSelector = document.getElementById('langSelector');
-
       langToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        langDropdown.classList.toggle('active');
+        langDropdown.classList.toggle('show');
       });
-
       // Close dropdown when clicking outside
       document.addEventListener('click', (e) => {
-        if (!langSelector.contains(e.target)) {
-          langDropdown.classList.remove('active');
+        if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+          langDropdown.classList.remove('show');
         }
-      });
-
-      // Close dropdown when language selected (already handled by button click, but we also want to close)
-      const langButtons = document.querySelectorAll('.lang-dropdown button');
-      langButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          langDropdown.classList.remove('active');
-        });
       });
 
       // Language translations
@@ -1133,7 +1122,7 @@
           privacy: 'Privacy Policy',
           terms: 'Terms & Conditions',
         },
-        zh: {
+        'zh-CN': {
           stickyCta: '立即订购',
           navHome: '首页',
           navProducts: '产品',
@@ -1211,7 +1200,7 @@
           privacy: '隐私政策',
           terms: '服务条款',
         },
-        'zh-tw': {
+        'zh-TW': {
           stickyCta: '立即訂購',
           navHome: '首頁',
           navProducts: '產品',
@@ -1229,11 +1218,11 @@
           bpom: 'BPOM RI',
           organic: '有機',
           pirt: 'PIRT',
-          trustNote: '*認證進行中，我們對質量和安全的承諾。',
+          trustNote: '*認證進行中，我們對品質和安全的承諾。',
           testimonialsTitle: '他們怎麼說？',
           testimonial1: '"AMARTA口感 creamy，不苦澀，非常適合早晨。我感覺更有活力！"',
           testimonial1Name: '— Anita博士，營養師',
-          testimonial2: '"作為抹茶愛好者，ARKANA煙熏味非常獨特。這是一個認真的競爭對手！"',
+          testimonial2: '"作為抹茶愛好者，ARKANA煙燻味非常獨特。這是一個認真的競爭對手！"',
           testimonial2Name: '— Rizky，美食博主',
           testimonial3: '"本地農民受益，產品優質。為使用AUREVIA感到自豪。"',
           testimonial3Name: '— Siti，素食社區',
@@ -1243,7 +1232,7 @@
           badgePure: '純',
           product2Desc: '溫和辣木，100% A級辣木葉。',
           badgeBlack: '黑',
-          product3Desc: '煙熏烤香 — 發酵與烘焙。',
+          product3Desc: '煙燻烤香 — 發酵與烘焙。',
           uniquenessTitle: '創新與獨特',
           usp1Title: '低溫脫水',
           usp1Desc: '100%保留營養。',
@@ -1252,7 +1241,7 @@
           usp3Title: '初乳（黃金系列）',
           usp3Desc: '增強免疫力。',
           usp4Title: '發酵與烘焙',
-          usp4Desc: '獨特的煙熏味。',
+          usp4Desc: '獨特的煙燻味。',
           comparisonTitle: 'AUREVIA vs 其他',
           comp1: '低溫脫水，初乳，無苦澀',
           comp2Title: '進口抹茶',
@@ -1263,7 +1252,7 @@
           qualityTitle: 'AUREVIA品質之旅',
           quality1Title: '精選農民',
           quality1Desc: '與經驗豐富的本地農民合作，採用有機和環保種植方式。',
-          quality2Title: '質量控制',
+          quality2Title: '品質控制',
           quality2Desc: '每一片辣木葉都經過嚴格檢查，確保只有A級進入後續加工。',
           quality3Title: '保鮮加工',
           quality3Desc: '通過低溫脫水和可控發酵，保留全部營養和風味。',
@@ -1449,7 +1438,7 @@
 
       // Function to switch language
       window.switchLanguage = function(lang) {
-        document.getElementById('currentLang').innerText = lang === 'zh-tw' ? '繁' : (lang === 'zh' ? '简' : lang.toUpperCase());
+        document.getElementById('currentLang').innerText = lang === 'zh-CN' ? '简' : (lang === 'zh-TW' ? '繁' : lang.toUpperCase());
         // Update all elements with data-i18n
         document.querySelectorAll('[data-i18n]').forEach(el => {
           const key = el.getAttribute('data-i18n');
@@ -1469,8 +1458,8 @@
         }
         // Store preference
         localStorage.setItem('preferredLanguage', lang);
-        // Close dropdown
-        langDropdown.classList.remove('active');
+        // Close dropdown after selection
+        document.getElementById('langDropdown').classList.remove('show');
       };
 
       // Load saved language
