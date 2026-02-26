@@ -455,7 +455,7 @@
       margin-top: 2.5rem;
       perspective: 1200px;
     }
-    .product-card, .usp-card, .team-card, .testimonial-card, .cert-card, .vision-card {
+    .product-card, .usp-card, .team-card, .testimonial-card, .cert-card, .vision-card, .journey-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -468,7 +468,7 @@
       overflow: hidden;
       transform-style: preserve-3d;
     }
-    .product-card:hover, .usp-card:hover, .team-card:hover, .vision-card:hover {
+    .product-card:hover, .usp-card:hover, .team-card:hover, .vision-card:hover, .journey-card:hover {
       transform: translateY(-15px) scale(1.03) rotateX(5deg) rotateY(5deg);
       box-shadow: 0 40px 50px -12px var(--accent-green);
       border-color: var(--accent-green);
@@ -636,13 +636,16 @@
       text-decoration: underline;
     }
 
-    /* Mobile tweaks */
+    /* ===== MOBILE OPTIMIZATIONS ===== */
     @media (max-width: 480px) {
+      section { margin: 4rem 0; }
       .hero-left h1 { font-size: 2.4rem; }
-      .product-card { border-radius: 30px; }
-      .cert-item { padding: 1rem; }
+      .hero-left p { font-size: 1rem; }
+      .hero .fa-leaf { font-size: 10rem !important; }
+      .sticky-cta { padding: 0.7rem 1.2rem; font-size: 0.95rem; }
+      .product-card, .usp-card, .team-card, .testimonial-card, .journey-card { padding: 1.5rem; }
       .final-cta { padding: 2rem; }
-      .sticky-cta { padding: 0.7rem 1.5rem; font-size: 1rem; }
+      .final-cta h3 { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -745,17 +748,34 @@
       <p style="text-align:center; margin-top:1rem;">*Berdasarkan persepsi pasar dan keunggulan produk.</p>
     </section>
 
-    <!-- How It's Made -->
-    <section id="proses">
-      <h2>Bagaimana AUREVIA Dibuat?</h2>
-      <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="usp-card" style="--i:1"><i class="fas fa-hand-holding-heart usp-icon"></i><h3>1. Panen Grade A</h3><p>Daun kelor pilihan dari petani lokal.</p></div>
-        <div class="usp-card" style="--i:2"><i class="fas fa-wind usp-icon"></i><h3>2. Dehidrasi Rendah</h3><p>Suhu maksimal 40°C, nutrisi utuh.</p></div>
-        <div class="usp-card" style="--i:3"><i class="fas fa-fire usp-icon"></i><h3>3. Fermentasi/Sangrai</h3><p>Varian Black melalui proses fermentasi.</p></div>
+    <!-- DARI KEBUN KE CANGKIR (pengganti proses rahasia) -->
+    <section id="dari-kebun">
+      <h2>Dari Kebun ke Cangkir</h2>
+      <div class="card-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="journey-card" style="--i:1">
+          <i class="fas fa-hand-holding-heart usp-icon"></i>
+          <h3>Petani Mitra</h3>
+          <p>Bekerja sama dengan petani lokal berpengalaman untuk mendapatkan daun kelor berkualitas terbaik.</p>
+        </div>
+        <div class="journey-card" style="--i:2">
+          <i class="fas fa-search usp-icon"></i>
+          <h3>Sortir Ketat</h3>
+          <p>Setiap daun melewati proses seleksi untuk memastikan hanya grade A yang diproses lebih lanjut.</p>
+        </div>
+        <div class="journey-card" style="--i:3">
+          <i class="fas fa-flask usp-icon"></i>
+          <h3>Pengolahan Modern</h3>
+          <p>Dengan teknologi higienis dan standar mutu, kelor diolah menjadi bubuk premium tanpa bahan kimia.</p>
+        </div>
+        <div class="journey-card" style="--i:4">
+          <i class="fas fa-truck usp-icon"></i>
+          <h3>Distribusi Luas</h3>
+          <p>Produk siap dinikmati dan dikirim ke seluruh Indonesia melalui mitra logistik terpercaya.</p>
+        </div>
       </div>
     </section>
 
-    <!-- VISI & ARAH PERTUMBUHAN (pengganti section finansial & roadmap) -->
+    <!-- VISI & ARAH PERTUMBUHAN -->
     <section id="visi">
       <h2>Visi & Arah Pertumbuhan</h2>
       <div class="card-grid">
